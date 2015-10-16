@@ -6,6 +6,12 @@ Vagrant.configure(2) do |config|
   config.vm.hostname = "meeseeks"
   config.vm.network :forwarded_port, guest: 22, host: 12345, id: 'ssh'
 
+  config.vm.provider "virtualbox" do |v|
+    v.name = "meeseeks"
+    v.memory = 2048
+    v.cpus = 2
+  end
+
   config.vm.provision "shell", path: "provision/10-timezone.sh", name: "timezone"
   config.vm.provision "shell", path: "provision/30-packages-base.sh", name: "base-packages"
   config.vm.provision "shell", path: "provision/31-packages-docker.sh", name: "docker"
