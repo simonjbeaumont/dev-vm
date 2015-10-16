@@ -4,7 +4,6 @@
 Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
   config.vm.hostname = "meeseeks"
-  #config.vm.network "public_network"
   config.vm.network :forwarded_port, guest: 22, host: 12345, id: 'ssh'
 
   config.vm.provision "shell", path: "provision/10-timezone.sh", name: "timezone"
