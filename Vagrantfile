@@ -4,7 +4,8 @@
 Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
   config.vm.hostname = "meeseeks"
-  config.vm.network :forwarded_port, guest: 22, host: 12345, id: 'ssh'
+  config.vm.network "public_network", type: "dhcp", bridge: "en1: Wi-Fi (AirPort)"
+  config.vm.network "private_network", type: "dhcp"
 
   config.vm.provider "virtualbox" do |v|
     v.name = "meeseeks"
