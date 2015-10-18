@@ -23,6 +23,5 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", path: "provision/72-xs-automount.sh", name: "automount"
   config.vm.provision "shell", path: "provision/90-dotfiles.sh", name: "dotfiles"
 
-  config.vm.synced_folder "../code/", "/work/code",
-    mount_options: ["uid=2279", "gid=10020"]
+  config.vm.synced_folder "./work", "/work", type: "nfs", create: true
 end
