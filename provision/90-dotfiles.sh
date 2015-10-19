@@ -1,9 +1,8 @@
 #!/bin/sh
+su -l simonbe -c '/bin/bash <<EOI
+rm -f ~/.bashrc
+git clone git://github.com/simonjbeaumont/.dotfiles ~/.dotfiles
+cd ~/.dotfiles
+./bootstrap.sh
+EOI'
 
-sudo su - simonbe
-export HOME=/local/home/simonbe
-cd
-
-git clone git://github.com/simonjbeaumont/.dotfiles
-rm ~/.bashrc
-(cd .dotfiles; ./bootstrap.sh)
