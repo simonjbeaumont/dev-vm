@@ -4,8 +4,8 @@
 Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
   config.vm.hostname = "meeseeks"
-  config.vm.network "public_network", type: "dhcp", bridge: "en1: Wi-Fi (AirPort)"
-  config.vm.network "private_network", type: "dhcp"
+  config.vm.network "public_network", auto_config: false, mac: "080027d6ec72"
+  config.vm.network "private_network", ip: "172.28.128.101"
 
   config.vm.provider "virtualbox" do |v|
     v.name = "meeseeks"
@@ -14,6 +14,7 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.provision "shell", path: "provision/10-timezone.sh", name: "timezone"
+  config.vm.provision "shell", path: "provision/20-networking.sh", name: "networking"
   config.vm.provision "shell", path: "provision/30-packages-base.sh", name: "base-packages"
   config.vm.provision "shell", path: "provision/31-packages-docker.sh", name: "docker"
   config.vm.provision "shell", path: "provision/32-packages-hub.sh", name: "hub"
