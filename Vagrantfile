@@ -17,6 +17,7 @@ Vagrant.configure(2) do |config|
   config.vm.network "public_network", auto_config: false, mac: "080027d6ec72"
   config.vm.network "private_network", ip: "172.28.128.101"
 
+  config.ssh.shell = "bash"
   config.ssh.forward_x11 = true
   config.ssh.forward_agent = true
 
