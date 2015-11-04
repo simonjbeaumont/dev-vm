@@ -1,4 +1,6 @@
 #!/bin/sh
+set -ev
+
 add-apt-repository -y ppa:avsm/ppa
 apt-get update -qq
-apt-get install -yq m4 opam
+apt-get install -qq m4 opam

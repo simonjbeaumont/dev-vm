@@ -1,5 +1,8 @@
 #!/bin/sh
-apt-get update && apt-get install -yq \
+set -ev
+
+apt-get update -qq
+apt-get install -qq \
   git \
   vim-athena \
   tmux \
