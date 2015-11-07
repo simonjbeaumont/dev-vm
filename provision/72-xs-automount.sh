@@ -7,6 +7,10 @@ cat >> /etc/auto.master <<EOI
 /usr/groups yp:auto.groups --timeout=3600
 /nis        yp:auto.home   --timeout=3600
 /nfs        yp:auto.nfs    --timeout=3600
+
+# Recursive entris in yp maps not picked up...
+/usr/groups/linux yp:auto.linux   --timeout=3600
+/nfs/archive      yp:auto.archive --timeout=3600
 EOI
 
 sed -i '/^BROWSE_MODE/ s/no/yes/' /etc/default/autofs
