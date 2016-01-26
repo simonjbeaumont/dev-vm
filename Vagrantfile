@@ -23,7 +23,7 @@ Vagrant.configure(2) do |config|
   config.ssh.forward_x11 = true
   config.ssh.forward_agent = true
 
-  config.vm.synced_folder "./work", "/work", type: "nfs", create: true
+  config.vm.synced_folder "./work", "/work", type: "nfs", create: true, mount_options: ['rw', 'vers=3', 'tcp', 'actimeo=2', 'fsc', 'local_lock=flock']
 
   config.vm.provision "timezone",   type: "shell", path: "provision/10-timezone.sh"
   config.vm.provision "networking", type: "shell", path: "provision/20-networking.sh"
