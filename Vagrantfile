@@ -31,6 +31,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision "docker",     type: "shell", path: "provision/31-packages-docker.sh"
   config.vm.provision "hub",        type: "shell", path: "provision/32-packages-hub.sh"
   config.vm.provision "opam",       type: "shell", path: "provision/33-packages-opam.sh"
+  config.vm.provision "mutt",       type: "shell", path: "provision/34-packages-mutt.sh"
   config.vm.provision "user",       type: "shell", path: "provision/70-xs-user.sh"
   config.vm.provision "nis",        type: "shell", path: "provision/71-xs-nis.sh"
   config.vm.provision "automount",  type: "shell", path: "provision/72-xs-automount.sh"
